@@ -14,45 +14,46 @@ var variables can be redeclared and updated within their scope.
 // TODO: Create a variable to demonstrate global scope and assign it with "I am a global scope variable!".
 
 // Function to demonstrate global scope
+// Global variable
+let globalVar = "I am a global scope variable!"; // This variable has global scope
+
+// Function to demonstrate global scope
 function globalScopeDemo() {
     // Access globalVar inside the function
     let outputElement = document.getElementById("output-global");
-    outputElement.textContent = "Replace me with the variable you've created.";
+    outputElement.textContent = globalVar; // Displaying the global variable
 }
 
 function localScopeDemo() {
     // Local variable (only accessible within this function)
-   
-    // TODO: Create a variable to demonstrate local scope and assign it with "I am a local scope variable declared using the let keyword!".
+    let localVarLet = "I am a local scope variable declared using the let keyword!"; // Local scope with `let`
 
     // Access localVarLet inside the function
     let outputElement = document.getElementById("output-local-let");
-    outputElement.textContent = "Replace me with the variable you've created.";
+    outputElement.textContent = localVarLet;
 
-    // Attempt to reassign localVarLet (this is allowed)
-    
-    "Replace me with the variable you've created" = "Trying to reassign with let"; 
-    console.log("Replace me with the variable you've created."); // Output to console to demonstrate reassignment
+    // Reassign localVarLet (this is allowed)
+    localVarLet = "Trying to reassign with let"; 
+    console.log(localVarLet); // Output to console to demonstrate reassignment
 
-    // Attempt to redeclare localVarLet (this will throw an error)
+    // Attempt to redeclare localVarLet (this will throw an error if uncommented)
     // let localVarLet = "Trying to redeclare with let"; // Uncomment to see error
 }
 
 function varScopeDemo() {
     // Local variable (function-scoped)
-
-    // TODO: Create a variable to demonstrate local scope and assign it with "I am a local scope variable declared using the var keyword!".
+    var localVarVar = "I am a local scope variable declared using the var keyword!"; // Local scope with `var`
 
     // Access the variable inside the function
     let outputElement = document.getElementById("output-local-var");
-    outputElement.textContent = "Replace me with the variable you've created.";
+    outputElement.textContent = localVarVar;
 
     // Reassigning the local variable (this is allowed)
-    "Replace me with the variable you've created." = "I have been reassigned with a different value!";
+    localVarVar = "I have been reassigned with a different value!";
 
-    // Access re-assigned Variable
+    // Access re-assigned variable
     let outputReassigned = document.getElementById("output-reassigned-var");
-    outputReassigned.textContent = "Replace me with the variable you've created.";
+    outputReassigned.textContent = localVarVar;
 
     // Demonstrate function-scoped variable
     if (true) {
@@ -61,8 +62,8 @@ function varScopeDemo() {
     console.log(insideIfVar); // This will work as insideIfVar is function-scoped
 
     // Redeclare the created variable (this is allowed with var)
-    "Replace me with the variable you've created." = "I am redeclared with var!";
-    console.log("Replace me with the variable you've created."); // Output the redeclared variable
+    var localVarVar = "I am redeclared with var!";
+    console.log(localVarVar); // Output the redeclared variable
 }
 
 function blockScopeDemo() {
@@ -97,7 +98,7 @@ function mixedScopeDemo() {
 
     // Accessing innerLet and innerVar outside block
     // console.log(innerLet); // This will throw an error as innerLet is block-scoped
-   // console.log(innerVar); // This will work as innerVar is function-scoped
+    console.log(innerVar); // This will work as innerVar is function-scoped
 }
 
 // Call functions to update the HTML
