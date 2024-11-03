@@ -101,7 +101,7 @@ function mixedScopeDemo() {
     console.log(innerVar); // This will work as innerVar is function-scoped
 }
 
-// Call functions to update the HTML
+// Call functions to update the HTM
 globalScopeDemo();
 localScopeDemo();
 varScopeDemo();
